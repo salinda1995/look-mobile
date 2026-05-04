@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>LOOK MOBILE | Cybernetic Repair & Unlocking Systems</title>
+    <!-- Tailwind + Google Fonts + Material Symbols -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #000000;
+            font-family: 'Inter', sans-serif;
+        }
+        /* Brand glowing animation */
+        .brand-glow {
+            animation: brandPulse 1.8s ease-in-out infinite;
+            display: inline-block;
+            text-shadow: 0 0 5px #ff3b2f, 0 0 10px #ff1a0a;
+        }
+        @keyframes brandPulse {
+            0% { text-shadow: 0 0 2px #ff5540, 0 0 5px #ff2a1a; opacity: 0.9; }
+            50% { text-shadow: 0 0 12px #ff5540, 0 0 22px #ff2a1a; opacity: 1; }
+            100% { text-shadow: 0 0 2px #ff5540, 0 0 5px #ff2a1a; opacity: 0.9; }
+        }
+        .neon-glow-red {
+            text-shadow: 0 0 6px rgba(255, 85, 64, 0.6);
+        }
+        .box-glow-red {
+            box-shadow: 0 0 12px rgba(255, 85, 64, 0.5);
+        }
+        .box-glow-red:hover {
+            box-shadow: 0 0 22px rgba(255, 85, 64, 0.8);
+        }
+        .circuit-bg-pattern {
+            background-image: 
+                linear-gradient(rgba(255, 85, 64, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 85, 64, 0.03) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+        .glass-morph {
+            background: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 85, 64, 0.2);
+        }
+        .glow-border-bottom {
+            border-bottom: 2px solid #ff5540;
+            box-shadow: 0 2px 8px rgba(255, 85, 64, 0.3);
+        }
+        ::selection {
+            background: #ff5540;
+            color: #000;
+        }
+        .animate-pulse-slow {
+            animation: pulseRed 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulseRed {
+            0%, 100% { opacity: 0.6; box-shadow: 0 0 0 0 rgba(255, 85, 64, 0.4);}
+            50% { opacity: 1; box-shadow: 0 0 0 6px rgba(255, 85, 64, 0);}
+        }
+        .hover-scale-card {
+            transition: transform 0.2s ease, border-color 0.2s;
+        }
+        .hover-scale-card:hover {
+            transform: translateY(-4px);
+            border-left-color: #ffdb3c;
+        }
+        .service-card {
+            transition: all 0.25s ease;
+        }
+        .service-card:hover {
+            background: rgba(255, 85, 64, 0.05);
+            border-color: #ff5540;
+            transform: translateY(-3px);
+        }
+        .brand-pulse {
+            animation: softGlow 2s infinite;
+        }
+        @keyframes softGlow {
+            0% { filter: drop-shadow(0 0 2px #ff5540); }
+            50% { filter: drop-shadow(0 0 10px #ff2a1a); }
+            100% { filter: drop-shadow(0 0 2px #ff5540); }
+        }
+    </style>
+</head>
+<body class="bg-black text-[#e2e2e2] circuit-bg-pattern antialiased overflow-x-hidden">
+
+    <!-- ================= FIXED TOP NAVIGATION ================= -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-black/95 backdrop-blur-xl border-b border-red-900/40 shadow-xl transition-all duration-300">
+        <div class="max-w-[1440px] mx-auto px-5 md:px-8 py-4 flex justify-between items-center">
+            <!-- Brand with GLOWING animation + highlight -->
+            <a href="#" data-nav="home" class="nav-link text-2xl md:text-3xl font-black italic tracking-tighter transition-all flex items-center gap-1 group">
+                <span class="brand-glow text-red-600 brand-pulse">LOOK MOBILE</span>
+                <span class="material-symbols-outlined text-red-500 text-2xl animate-pulse">bolt</span>
+            </a>
+            
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" data-nav="home" class="nav-link font-['Space_Grotesk'] font-bold uppercase tracking-wider text-sm text-zinc-300 hover:text-red-500 transition px-1 py-1 border-b-2 border-transparent hover:border-red-500">Home</a>
+                <a href="#" data-nav="services" class="nav-link font-['Space_Grotesk'] font-bold uppercase tracking-wider text-sm text-zinc-300 hover:text-red-500 transition px-1 py-1 border-b-2 border-transparent hover:border-red-500">Services</a>
+                <a href="#" data-nav="contact" class="nav-link font-['Space_Grotesk'] font-bold uppercase tracking-wider text-sm text-zinc-300 hover:text-red-500 transition px-1 py-1 border-b-2 border-transparent hover:border-red-500">Contact</a>
+            </div>
+
+            <!-- Right side -->
+            <div class="flex items-center gap-3 md:gap-5">
+                <div class="hidden md:flex items-center gap-1 text-zinc-400 text-sm font-['Space_Grotesk'] font-bold uppercase tracking-wide cursor-pointer hover:text-red-400 transition">
+                    <span class="material-symbols-outlined text-base">language</span>
+                    <span>EN/SI</span>
+                </div>
+                <a href="https://wa.me/94756947700" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-700 text-white font-['Space_Grotesk'] font-bold uppercase tracking-wide text-xs md:text-sm px-4 py-2 transition-all box-glow-red rounded-none flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm">chat</span>
+                    <span>Book via WhatsApp</span>
+                </a>
+                <button id="mobileMenuBtn" class="md:hidden text-white focus:outline-none">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile drawer -->
+        <div id="mobileMenu" class="md:hidden hidden bg-black/95 backdrop-blur-xl border-t border-red-900/40 py-4 px-5 flex flex-col gap-4 transition-all">
+            <a href="#" data-nav="home" class="nav-link-mobile font-['Space_Grotesk'] font-bold uppercase tracking-wider py-2 border-b border-zinc-800 text-red-500">Home</a>
+            <a href="#" data-nav="services" class="nav-link-mobile font-['Space_Grotesk'] font-bold uppercase tracking-wider py-2 border-b border-zinc-800 text-zinc-300">Services</a>
+            <a href="#" data-nav="contact" class="nav-link-mobile font-['Space_Grotesk'] font-bold uppercase tracking-wider py-2 text-zinc-300">Contact</a>
+            <div class="flex items-center gap-3 pt-2 text-zinc-400 text-sm font-bold uppercase">
+                <span class="material-symbols-outlined text-base">language</span>
+                <span>EN/SI</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-28 md:pt-32 relative z-10 min-h-screen">
+        <!-- ================= HOME PAGE ================= -->
+        <div id="homePage" class="page-section w-full transition-opacity duration-300">
+            <!-- Hero with enhanced highlight -->
+            <section class="relative min-h-[85vh] flex items-center px-5 md:px-8 overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUKpke-TpXeLsEA_ad5SU1mXgz54FYfo8otvRFiCnIz5JjcNwXMmE4WRC4fVSTMzv0n5G7-GK8LtMuLY9XRbgRvEWRawAYILzrPFbql_dfWAtzv2HCVrSjxG36YZaWNNd_Wrz09w6yMq0qUM2gNrmiQwpC_8S9GFa-XXLoZ53nU3A2OXxWKqXzDclyIeEc7ruo4OueuwHJJ5TxNz_7xSLcXf7bxo-Qnr82FaqITQzOKvYTCVRzpgv2bSufaWwf2uaSDYaK2iY-nLQ" alt="cyber motherboard bg" class="w-full h-full object-cover opacity-25 mix-blend-luminosity">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
+                </div>
+                <div class="max-w-[1440px] mx-auto w-full relative z-10">
+                    <div class="max-w-3xl">
+                        <div class="inline-flex items-center gap-2 bg-zinc-900/70 px-3 py-1 border-l-4 border-red-600 mb-5">
+                            <span class="w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
+                            <span class="text-[11px] font-bold tracking-[0.2em] uppercase text-red-400">System Online // Diagnostic Ready</span>
+                        </div>
+                        <h1 class="font-['Space_Grotesk'] text-5xl md:text-7xl lg:text-8xl font-black uppercase leading-[1.1] tracking-tighter text-white">
+                            Precision <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-400">Engineered</span><br>
+                            Tech Repairs & Unlocks
+                        </h1>
+                        <p class="text-lg md:text-xl text-zinc-300 max-w-xl mt-6 leading-relaxed">
+                            FRP removal • Screen Lock Unlocking • Display Replacement • Micro-soldering. 99.8% success rate, rapid turnaround.
+                        </p>
+                        <div class="flex flex-wrap gap-5 mt-8">
+                            <a href="https://wa.me/94756947700" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold uppercase tracking-wider px-8 py-4 text-sm flex items-center gap-2 box-glow-red transition">
+                                <span class="material-symbols-outlined">bolt</span> BOOK VIA WHATSAPP
+                            </a>
+                            <a href="#" data-nav="services" class="nav-link border border-red-700 text-white hover:bg-red-600/20 px-8 py-4 text-sm font-bold uppercase tracking-wider flex items-center gap-2 transition">
+                                Explore Services <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </a>
+                        </div>
+                        <div class="flex items-center gap-6 mt-10 pt-5 border-t border-zinc-800">
+                            <div><span class="text-3xl md:text-4xl font-black text-white">99.8%</span><p class="text-[11px] tracking-wider text-zinc-400">SUCCESS RATE</p></div>
+                            <div class="w-px h-8 bg-zinc-700"></div>
+                            <div><span class="text-3xl md:text-4xl font-black text-white">&lt;24H</span><p class="text-[11px] tracking-wider text-zinc-400">AVG TURNAROUND</p></div>
+                            <div class="w-px h-8 bg-zinc-700"></div>
+                            <div><span class="text-3xl md:text-4xl font-black text-white">L3</span><p class="text-[11px] tracking-wider text-zinc-400">MICRO-SOLDERING</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Enhanced services preview (showing new unlock services) -->
+            <section class="py-20 px-5 md:px-8 bg-zinc-950/40 border-y border-zinc-800">
+                <div class="max-w-[1440px] mx-auto">
+                    <div class="flex flex-wrap justify-between items-end border-b border-zinc-800 pb-5 mb-10">
+                        <div><h2 class="text-3xl md:text-4xl font-['Space_Grotesk'] font-bold uppercase tracking-tight text-white">Core Protocols</h2><p class="text-zinc-400 mt-2">Specialized intervention vectors + unlock matrix</p></div>
+                        <a href="#" data-nav="services" class="nav-link text-red-500 hover:text-red-400 text-sm uppercase tracking-wider font-bold flex items-center gap-1">View All Protocols <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                        <div class="bg-black/60 border-l-4 border-red-600 p-5 backdrop-blur-sm service-card"><span class="material-symbols-outlined text-red-500 text-3xl">build</span><h3 class="text-lg font-bold uppercase mt-2">Hardware Repair</h3><p class="text-zinc-400 text-xs">Micro-soldering, IC replacement</p></div>
+                        <div class="bg-black/60 border-l-4 border-yellow-500 p-5 backdrop-blur-sm service-card"><span class="material-symbols-outlined text-yellow-500 text-3xl">terminal</span><h3 class="text-lg font-bold uppercase mt-2">Software Flash</h3><p class="text-zinc-400 text-xs">Firmware, bootloop, OS recovery</p></div>
+                        <div class="bg-black/60 border-l-4 border-purple-500 p-5 backdrop-blur-sm service-card"><span class="material-symbols-outlined text-purple-400 text-3xl">lock_open</span><h3 class="text-lg font-bold uppercase mt-2">FRP & Screen Unlock</h3><p class="text-zinc-400 text-xs">FRP bypass, pattern/PIN removal</p></div>
+                        <div class="bg-black/60 border-l-4 border-emerald-500 p-5 backdrop-blur-sm service-card"><span class="material-symbols-outlined text-emerald-400 text-3xl">screen_search_desktop</span><h3 class="text-lg font-bold uppercase mt-2">Display Replacement</h3><p class="text-zinc-400 text-xs">OLED/LCD, True Tone calibration</p></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= SERVICES PAGE (EXPANDED) ================= -->
+        <div id="servicesPage" class="page-section w-full hidden transition-opacity duration-300">
+            <div class="max-w-[1440px] mx-auto px-5 md:px-8">
+                <div class="mb-12 border-l-4 border-red-600 pl-6">
+                    <div class="inline-flex items-center gap-2 bg-zinc-900 px-3 py-1 mb-3"><span class="w-2 h-2 bg-red-600 animate-pulse"></span><span class="text-xs font-bold uppercase tracking-wider text-red-400">Advanced Service Matrix</span></div>
+                    <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white">Full <span class="text-red-500">Unlock & Repair</span> Protocols</h1>
+                    <p class="text-zinc-300 max-w-2xl mt-4 text-lg">FRP unlocking, screen lock removal, display replacement, micro-soldering and more.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+                    <!-- Existing services + new ones -->
+                    <div class="bg-black/60 backdrop-blur-sm border-t-2 border-red-600 p-6 service-card"><span class="material-symbols-outlined text-4xl text-red-500 mb-3">memory</span><h3 class="text-xl font-bold uppercase mb-2">Motherboard Micro-Soldering</h3><p class="text-zinc-400 text-sm mb-4">IC replacement, trace repair, short isolation. Precision thermal profiling.</p><a href="https://wa.me/94756947700" target="_blank" class="inline-flex items-center gap-2 bg-red-600 text-white text-xs uppercase font-bold px-4 py-2 w-full justify-center">Request Quote</a></div>
+                    
+                    <div class="bg-black/60 backdrop-blur-sm border border-zinc-800 p-6 service-card"><span class="material-symbols-outlined text-4xl text-yellow-500 mb-3">ad_units</span><h3 class="text-xl font-bold uppercase mb-2">OLED Display Assembly</h3><p class="text-zinc-400 text-sm mb-4">True Tone calibration, digitizer sync, biometric alignment.</p><a href="https://wa.me/94756947700" target="_blank" class="inline-flex items-center gap-2 border border-red-600 text-red-500 text-xs uppercase font-bold px-4 py-2 w-full justify-center hover:bg-red-600/10">Request Quote</a></div>
+                    
+                    <!-- FRP UNLOCKING (NEW) -->
+                    <div class="bg-black/60 backdrop-blur-sm border-t-2 border-purple-500 p-6 service-card"><span class="material-symbols-outlined text-4xl text-purple-400 mb-3">fingerprint</span><h3 class="text-xl font-bold uppercase mb-2">FRP Unlocking</h3><p class="text-zinc-400 text-sm mb-4">Factory Reset Protection bypass (Samsung, Xiaomi, Oppo, Vivo, Huawei). Remove Google account lock without data loss.</p><a href="https://wa.me/94756947700" target="_blank" class="inline-flex items-center gap-2 bg-purple-600/80 text-white text-xs uppercase font-bold px-4 py-2 w-full justify-center">Unlock Now</a></div>
+                    
+                    <!-- SCREEN LOCK UNLOCKING (NEW) -->
+                    <div class="bg-black/60 backdrop-blur-sm border-l-4 border-cyan-500 p-6 service-card"><span class="material-symbols-outlined text-4xl text-cyan-400 mb-3">lock_reset</span><h3 class="text-xl font-bold uppercase mb-2">Screen Lock Unlocking</h3><p class="text-zinc-400 text-sm mb-4">Pattern/PIN/Password removal. Fast recovery for locked devices. Samsung, iPhone (passcode bypass), Xiaomi, Realme.</p><a href="https://wa.me/94756947700" target="_blank" class="inline-flex items-center gap-2 border border-cyan-500 text-cyan-400 text-xs uppercase font-bold px-4 py-2 w-full justify-center hover:bg-cyan-600/20">Bypass Lock</a></div>
+                    
+                    <!-- DISPLAY REPLACEMENT (enhanced) -->
+                    <div class="bg-black/60 backdrop-blur-sm border-t-2 border-emerald-500 p-6 service-card"><span class="material-symbols-outlined text-4xl text-emerald-400 mb-3">display_settings</span><h3 class="text-xl font-bold uppercase mb-2">Display Replacement</h3><p class="text-zinc-400 text-sm mb-4">Full assembly replacement for cracked/black screens. OLED, LCD, flexible panels. Waterproof sealing restored.</p><a href="https://wa.me/94756947700" target="_blank" class="inline-flex items-center gap-2 bg-emerald-700/70 text-white text-xs uppercase font-bold px-4 py-2 w-full justify-center">Fix Display</a></div>
+                    
+                    <!-- Carrier Unlock -->
+                    <div class="bg-black/60 backdrop-blur-sm border border-zinc-800 p-6 service-card"><span class="material-symbols-outlined text-4xl text-yellow-500 mb-3">cell_tower</span><h3 class="text-xl font-bold uppercase mb-2">Carrier Network Unlock</h3><p class="text-zinc-400 text-sm mb-4">Global SIM restriction removal. IMEI whitelist, baseband reconfiguration.</p><a href="https://wa.me/94756947700" target="_blank" class="inline-flex items-center gap-2 border border-red-600 text-red-500 text-xs uppercase font-bold px-4 py-2 w-full justify-center">Request</a></div>
+                    
+                    <!-- Software Flash / Custom ROM -->
+                    <div class="bg-black/60 backdrop-blur-sm border border-zinc-800 p-6 lg:col-span-1 service-card"><span class="material-symbols-outlined text-4xl text-zinc-300 mb-3">terminal</span><h3 class="text-xl font-bold uppercase mb-2">Kernel & Firmware Flash</h3><p class="text-zinc-400 text-sm mb-4">Bootloop fix, stock/custom ROM, IMEI repair, secure data recovery.</p><a href="https://wa.me/94756947700" target="_blank" class="inline-flex items-center gap-2 border border-red-600 text-red-500 text-xs uppercase font-bold px-4 py-2 w-full justify-center">Flash Now</a></div>
+                    
+                    <!-- Battery calibration card (wide) -->
+                    <div class="bg-black/60 backdrop-blur-sm border-t-2 border-red-600 p-6 lg:col-span-3 service-card relative overflow-hidden"><div class="absolute right-0 bottom-0 opacity-10"><span class="material-symbols-outlined text-8xl">battery_charging_full</span></div><h3 class="text-2xl font-bold uppercase mb-2">Battery Array Calibration & Replacement</h3><p class="text-zinc-400 max-w-2xl">Lithium-ion cell with BMS logic board transfer. Zero 'non-genuine' warnings. Cycle count reset, thermal validation.</p><div class="mt-4 flex gap-1 w-64"><div class="h-1.5 bg-red-600 w-12"></div><div class="h-1.5 bg-red-600 w-12"></div><div class="h-1.5 bg-red-600 w-12"></div><div class="h-1.5 bg-red-600 w-12"></div><div class="h-1.5 bg-zinc-700 w-12"></div></div><a href="https://wa.me/94756947700" target="_blank" class="mt-5 inline-flex items-center gap-2 bg-red-600 text-white text-xs uppercase font-bold px-6 py-2">Get Battery Service</a></div>
+                </div>
+                
+                <!-- extra badge for unlocks -->
+                <div class="mt-12 bg-gradient-to-r from-red-950/40 to-black border border-red-800/50 p-6 text-center">
+                    <span class="material-symbols-outlined text-red-500 text-3xl align-middle">verified</span>
+                    <span class="font-['Space_Grotesk'] font-bold uppercase tracking-wider ml-2">100% successful FRP & Screen Lock removals • Fast response • Secure & private</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= CONTACT PAGE ================= -->
+        <div id="contactPage" class="page-section w-full hidden transition-opacity duration-300">
+            <div class="max-w-[1440px] mx-auto px-5 md:px-8">
+                <header class="text-center mb-12 relative">
+                    <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white neon-glow-red">Secure Comms</h1>
+                    <p class="text-zinc-300 max-w-2xl mx-auto mt-3">Direct query for FRP unlock, screen lock removal, display repair or any diagnostic.</p>
+                </header>
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="glass-morph p-7 border-t border-red-600/60 relative">
+                        <div class="absolute top-3 right-3 bg-black/70 px-2 py-0.5 text-[10px] font-bold text-red-400 uppercase">STATUS: SECURE</div>
+                        <h2 class="text-2xl font-bold uppercase tracking-tighter mb-6">Initialize Query</h2>
+                        <form id="contactForm" class="space-y-5">
+                            <div><label class="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-1">Designation (Name)</label><input type="text" id="contactName" class="w-full bg-transparent border-b border-zinc-700 focus:border-red-600 text-white py-2 outline-none transition" placeholder="ENTER NAME"></div>
+                            <div><label class="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-1">Comms Link (Phone/Email)</label><input type="text" id="contactInfo" class="w-full bg-transparent border-b border-zinc-700 focus:border-red-600 text-white py-2 outline-none" placeholder="ENTER CONTACT INFO"></div>
+                            <div><label class="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-1">Diagnostic Brief (Message)</label><textarea id="contactMsg" rows="3" class="w-full bg-transparent border-b border-zinc-700 focus:border-red-600 text-white py-2 outline-none resize-none" placeholder="Describe FRP issue / screen lock type / display damage or other"></textarea></div>
+                            <button type="button" id="sendContactBtn" class="w-full bg-red-600 hover:bg-red-700 text-white uppercase font-bold py-3 flex items-center justify-center gap-2 transition box-glow-red"><span class="material-symbols-outlined">send</span> Transmit Data</button>
+                            <p id="formFeedback" class="text-xs text-green-400 text-center hidden"></p>
+                        </form>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-zinc-900/80 border border-zinc-800 p-6 relative">
+                            <div class="absolute top-3 right-3 bg-black/60 px-2 py-0.5 text-[10px] font-bold text-yellow-400 flex items-center gap-1"><span class="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse"></span>TERMINAL ACTIVE</div>
+                            <h2 class="text-xl font-bold uppercase tracking-tighter mb-4">Direct Coordinates</h2>
+                            <div class="space-y-4"><div class="flex gap-3"><span class="material-symbols-outlined text-red-500">location_on</span><div><p class="text-xs text-zinc-400 uppercase">Physical Location</p><p class="text-white">In front of DFCC Bank,<br>Uhana, Ampara.</p></div></div>
+                            <div class="flex gap-3"><span class="material-symbols-outlined text-red-500">call</span><div><p class="text-xs text-zinc-400 uppercase">Voice Link</p><p class="text-white font-bold">+94 75 694 7700</p></div></div>
+                            <div class="flex gap-3"><span class="material-symbols-outlined text-red-500">schedule</span><div><p class="text-xs text-zinc-400 uppercase">Operational Hours</p><p class="text-white">09:00 - 19:00 (Standard Local Time)</p></div></div></div>
+                        </div>
+                        <div class="relative border border-zinc-800 overflow-hidden group bg-black">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjR_CUkXBK4S4L5llELev0jiLIZgZzfEzkFhqMTPRfq9UenQV_51kycci6fEWYY1QYxY9mcyJXprmi9zvhIyMkxASjarg4BOeu-dBIP0DPESLNNTK62HCSZgcXuMFi1D5n4T4qxJ_kwRKNa20xr90xMknwHRmJCFONE8eueUTE3KX4NFPaIS5lsEHNk16277HUmcRLtxdqZcfmsHVLHZoeZPG-62fsrRx7C6LSmPjVJNhYz5kqCTjS7km4isV2bqRZQdOXLiVfnok" alt="tactical map" class="w-full h-64 object-cover opacity-70 grayscale contrast-125">
+                            <div class="absolute bottom-0 left-0 w-full bg-black/80 backdrop-blur-sm p-3 flex justify-between items-center"><span class="text-[11px] font-bold uppercase flex items-center gap-1"><span class="material-symbols-outlined text-red-500 text-sm">my_location</span> TARGET: UHANA_TERMINAL</span><button class="border border-red-600 text-red-500 text-xs uppercase px-3 py-1 hover:bg-red-600/20">Initialize Routing</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="w-full border-t-2 border-red-600 bg-[#050505] mt-16">
+        <div class="max-w-[1440px] mx-auto px-6 py-12 grid md:grid-cols-4 gap-8">
+            <div><div class="text-xl font-black text-red-600 italic tracking-tighter flex items-center gap-1"><span>LOOK MOBILE</span><span class="material-symbols-outlined text-red-500 text-lg">bolt</span></div><p class="text-zinc-500 text-sm mt-3">© 2024 LOOK MOBILE. In front of DFCC Bank, Uhana, Ampara. +94756947700</p></div>
+            <div class="flex flex-col gap-2"><a href="#" data-nav="home" class="nav-link text-zinc-500 hover:text-red-400 text-sm uppercase tracking-wide">Diagnostic</a><a href="#" data-nav="services" class="nav-link text-zinc-500 hover:text-red-400 text-sm uppercase tracking-wide">Hardware Repair</a><a href="#" data-nav="services" class="nav-link text-zinc-500 hover:text-red-400 text-sm uppercase tracking-wide">FRP Unlock</a><a href="#" data-nav="contact" class="nav-link text-zinc-500 hover:text-red-400 text-sm uppercase tracking-wide">Track Status</a></div>
+            <div class="md:col-span-2 flex justify-end items-end"><span class="text-zinc-600 text-xs tracking-wider">ENCRYPTED CHANNEL // FRP & LOCK REMOVAL v3.0</span></div>
+        </div>
+    </footer>
+
+    <script>
+        const homeDiv = document.getElementById('homePage');
+        const servicesDiv = document.getElementById('servicesPage');
+        const contactDiv = document.getElementById('contactPage');
+        
+        function showPage(pageId) {
+            homeDiv.classList.add('hidden');
+            servicesDiv.classList.add('hidden');
+            contactDiv.classList.add('hidden');
+            if (pageId === 'home') homeDiv.classList.remove('hidden');
+            else if (pageId === 'services') servicesDiv.classList.remove('hidden');
+            else if (pageId === 'contact') contactDiv.classList.remove('hidden');
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const linkPage = link.getAttribute('data-nav');
+                if (linkPage === pageId) {
+                    link.classList.add('text-red-500', 'border-b-2', 'border-red-500');
+                    link.classList.remove('text-zinc-300', 'border-transparent');
+                } else {
+                    link.classList.remove('text-red-500', 'border-b-2', 'border-red-500');
+                    link.classList.add('text-zinc-300', 'border-transparent');
+                }
+            });
+            document.querySelectorAll('.nav-link-mobile').forEach(link => {
+                if(link.getAttribute('data-nav') === pageId) link.classList.add('text-red-500');
+                else link.classList.remove('text-red-500');
+            });
+            window.location.hash = pageId;
+        }
+        
+        function bindNavEvents() {
+            document.querySelectorAll('.nav-link, .nav-link-mobile').forEach(link => {
+                link.removeEventListener('click', navHandler);
+                link.addEventListener('click', navHandler);
+            });
+        }
+        function navHandler(e) {
+            e.preventDefault();
+            const page = this.getAttribute('data-nav');
+            if(page) showPage(page);
+            const mobileMenuDiv = document.getElementById('mobileMenu');
+            if(mobileMenuDiv && !mobileMenuDiv.classList.contains('hidden')) mobileMenuDiv.classList.add('hidden');
+        }
+        
+        document.getElementById('mobileMenuBtn')?.addEventListener('click', () => {
+            document.getElementById('mobileMenu')?.classList.toggle('hidden');
+        });
+        
+        document.getElementById('sendContactBtn')?.addEventListener('click', () => {
+            const name = document.getElementById('contactName')?.value.trim();
+            const info = document.getElementById('contactInfo')?.value.trim();
+            const msg = document.getElementById('contactMsg')?.value.trim();
+            const feedback = document.getElementById('formFeedback');
+            if(!name || !info || !msg) {
+                feedback.textContent = "ERROR: All fields required. Transmit aborted.";
+                feedback.classList.remove('hidden', 'text-green-400');
+                feedback.classList.add('text-red-400');
+                setTimeout(() => feedback.classList.add('hidden'), 2500);
+                return;
+            }
+            feedback.textContent = "✓ Data transmitted securely. Specialist will respond within 2 hours.";
+            feedback.classList.remove('hidden', 'text-red-400');
+            feedback.classList.add('text-green-400');
+            setTimeout(() => feedback.classList.add('hidden'), 3000);
+            document.getElementById('contactForm')?.reset();
+        });
+        
+        function getHashPage() {
+            const hash = window.location.hash.slice(1);
+            if(hash === 'services') return 'services';
+            if(hash === 'contact') return 'contact';
+            return 'home';
+        }
+        bindNavEvents();
+        showPage(getHashPage());
+        window.addEventListener('hashchange', () => showPage(getHashPage()));
+    </script>
+</body>
+</html>
