@@ -348,6 +348,18 @@ nav ul li a.shop-link::after{
   background:linear-gradient(135deg,#30d158,#64d2ff);
   box-shadow:0 0 8px rgba(48,209,88,.9);
 }
+nav ul li a.download-link{
+  position:relative;
+}
+nav ul li a.download-link::after{
+  content:'';
+  position:absolute;
+  top:6px;right:8px;
+  width:6px;height:6px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff9f0a,#ff375f);
+  box-shadow:0 0 8px rgba(255,159,10,.9);
+}
 
 .theme-toggle{
   width:44px;height:44px;
@@ -1160,6 +1172,35 @@ section{padding:3.5rem 0;position:relative}
   box-shadow:0 6px 18px rgba(48,209,88,.6),inset 0 1px 0 rgba(255,255,255,.5);
 }
 
+/* ============ DOWNLOAD BUTTON ============ */
+.tool-dl{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  padding:.42rem .78rem;
+  border-radius:100px;
+  font-size:.7rem;
+  font-weight:700;
+  background:linear-gradient(135deg,#0a84ff,#5e5ce6);
+  color:#fff;
+  box-shadow:
+    0 4px 12px rgba(10,132,255,.4),
+    inset 0 1px 0 rgba(255,255,255,.4);
+  white-space:nowrap;
+  transition:all .3s ease;
+}
+.tool-dl svg{width:13px;height:13px}
+.tool-card:hover .tool-dl{
+  box-shadow:0 6px 18px rgba(10,132,255,.6),inset 0 1px 0 rgba(255,255,255,.5);
+  transform:translateY(-1px);
+}
+.tool-dl.purple{background:linear-gradient(135deg,#bf5af2,#5e5ce6);box-shadow:0 4px 12px rgba(191,90,242,.4),inset 0 1px 0 rgba(255,255,255,.4)}
+.tool-card:hover .tool-dl.purple{box-shadow:0 6px 18px rgba(191,90,242,.6),inset 0 1px 0 rgba(255,255,255,.5)}
+.tool-dl.green{background:linear-gradient(135deg,#30d158,#25d366);box-shadow:0 4px 12px rgba(48,209,88,.4),inset 0 1px 0 rgba(255,255,255,.4)}
+.tool-card:hover .tool-dl.green{box-shadow:0 6px 18px rgba(48,209,88,.6),inset 0 1px 0 rgba(255,255,255,.5)}
+.tool-dl.orange{background:linear-gradient(135deg,#ff9f0a,#ff375f);box-shadow:0 4px 12px rgba(255,159,10,.4),inset 0 1px 0 rgba(255,255,255,.4)}
+.tool-card:hover .tool-dl.orange{box-shadow:0 6px 18px rgba(255,159,10,.6),inset 0 1px 0 rgba(255,255,255,.5)}
+
 .shop-banner{
   margin-top:2rem;
   padding:1.4rem 1.6rem;
@@ -1176,6 +1217,7 @@ section{padding:3.5rem 0;position:relative}
 .shop-banner-text h4{font-size:1.05rem;margin-bottom:.25rem;font-weight:700}
 .shop-banner-text p{font-size:.85rem;color:var(--text-dim)}
 .shop-banner .btn{flex-shrink:0}
+.shop-banner.warn{background:linear-gradient(135deg,rgba(255,159,10,.14),rgba(255,55,95,.14))}
 
 /* ============ HOW IT WORKS ============ */
 .steps{
@@ -2105,6 +2147,11 @@ footer{padding:2rem 0 1rem;margin-top:1.5rem;position:relative}
     <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
     <path d="M3 9a3 3 0 0 0 6 0 3 3 0 0 0 6 0 3 3 0 0 0 6 0"/>
   </symbol>
+  <symbol id="i-download" viewBox="0 0 24 24">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </symbol>
   <symbol id="i-whatsapp" viewBox="0 0 24 24">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
   </symbol>
@@ -2146,6 +2193,7 @@ footer{padding:2rem 0 1rem;margin-top:1.5rem;position:relative}
         <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
         <li><a onclick="showPage('services')" id="nav-services">Services</a></li>
         <li><a onclick="showPage('shop')" id="nav-shop" class="shop-link">Shop Owners</a></li>
+        <li><a onclick="showPage('download')" id="nav-download" class="download-link">Download</a></li>
         <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
       </ul>
     </nav>
@@ -3107,6 +3155,106 @@ footer{padding:2rem 0 1rem;margin-top:1.5rem;position:relative}
   </section>
 </div>
 
+<!-- ============================================================
+     DOWNLOAD PAGE
+     ============================================================ -->
+<div id="page-download" class="page">
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-tag">✦ Free Downloads</span>
+      <h1>Tools &amp; apps,<br><span style="background:linear-gradient(135deg,#64d2ff,#bf5af2);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">free download.</span></h1>
+      <p>Free utilities from LOOK MOBILE — tested and safe. Click any button below to download.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:.5rem">
+    <div class="container">
+      <div class="tool-grid">
+
+        <!-- ============================================ -->
+        <!-- 1) WA FLICKER FIX TOOL                      -->
+        <!-- ⬇️ DOWNLOAD LINK එක මෙතන දාන්න ⬇️           -->
+        <!-- href="" ඇතුලේ ඔබේ download link එක paste කරන්න -->
+        <!-- ============================================ -->
+        <div class="tool-card reveal">
+          <div class="tool-top">
+            <div class="tool-icon" style="background:linear-gradient(135deg,#30d158,#25d366)">
+              <svg class="ico fill"><use href="#i-whatsapp"/></svg>
+            </div>
+            <h3>WA Flicker Fix Tool</h3>
+          </div>
+          <p>Fix WhatsApp screen flickering &amp; display glitches on Android devices. One-tap repair utility — no root required.</p>
+          <div class="tool-foot">
+            <span class="tool-tag green">Free · Windows</span>
+            <a href="https://drive.google.com/file/d/1zOfHTEU0ANxa_wWWClIiMCkq2UfFs2b5/view?usp=drive_link" download class="tool-dl green">
+              <svg class="ico"><use href="#i-download"/></svg> Download
+            </a>
+          </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- 2) HONOR FRP TOOL                           -->
+        <!-- ⬇️ DOWNLOAD LINK එක මෙතන දාන්න ⬇️           -->
+        <!-- ============================================ -->
+        <div class="tool-card reveal">
+          <div class="tool-top">
+            <div class="tool-icon" style="background:linear-gradient(135deg,#bf5af2,#5e5ce6)">
+              <svg class="ico"><use href="#i-unlock"/></svg>
+            </div>
+            <h3>Honor FRP Tool</h3>
+          </div>
+          <p>Remove FRP (Factory Reset Protection) lock from Honor devices. Supports recent Honor &amp; Huawei models.</p>
+          <div class="tool-foot">
+            <span class="tool-tag purple">Free · Windows</span>
+            <a href="https://drive.google.com/file/d/1Drv5PUA8ZukrGnDXOReF4SqPEWrHWUum/view?usp=drive_link" download class="tool-dl purple">
+              <svg class="ico"><use href="#i-download"/></svg> Download
+            </a>
+          </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- 3) තව tool එකක් add කරන්න ඕන නම් මේ card එක copy කරන්න -->
+        <!-- ============================================ -->
+        <div class="tool-card reveal">
+          <div class="tool-top">
+            <div class="tool-icon" style="background:linear-gradient(135deg,#64d2ff,#0a84ff)">
+              <svg class="ico"><use href="#i-smartphone"/></svg>
+            </div>
+            <h3>More Coming Soon</h3>
+          </div>
+          <p>More free tools will be added here soon. Message us on WhatsApp if you need a specific tool.</p>
+          <div class="tool-foot">
+            <span class="tool-tag">Coming Soon</span>
+            <a href="https://wa.me/94756947700?text=Hi%2C%20I%20need%20a%20tool%20from%20LOOK%20MOBILE" target="_blank" class="tool-wa">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Ask
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="shop-banner warn reveal" style="margin-top:2rem">
+        <div class="shop-banner-text">
+          <h4>⚠️ Safe download reminder</h4>
+          <p>All tools are provided free for repair professionals. Scan with antivirus before running. We're not responsible for misuse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta-panel reveal">
+        <h2>Need a tool that's not here?</h2>
+        <p>Message us on WhatsApp — we'll send the download link directly.</p>
+        <a href="https://wa.me/94756947700?text=Hi%2C%20I%20need%20a%20tool%20download%20link" target="_blank" class="btn btn-green">
+          <svg class="ico fill"><use href="#i-whatsapp"/></svg> Request a Tool
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
 <div id="page-contact" class="page">
   <section class="page-hero">
     <div class="container">
@@ -3279,6 +3427,7 @@ footer{padding:2rem 0 1rem;margin-top:1.5rem;position:relative}
             <li><a onclick="showPage('home')">Home</a></li>
             <li><a onclick="showPage('services')">Services</a></li>
             <li><a onclick="showPage('shop')">For Shop Owners</a></li>
+            <li><a onclick="showPage('download')">Download</a></li>
             <li><a onclick="showPage('contact')">Contact</a></li>
           </ul>
         </div>
